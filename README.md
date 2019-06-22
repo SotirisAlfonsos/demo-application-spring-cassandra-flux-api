@@ -46,3 +46,5 @@ CREATE TABLE IF NOT EXISTS recommend.User (
 High level endpoints are:
 * /recommend/user - User related endpoint
 * /recommend/product - Product related endpoint
+
+Update to test jenkins
