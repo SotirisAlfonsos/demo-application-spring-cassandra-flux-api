@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "fluxrelease/demo-release-repo"
+        registry = "fluxrelease/demo-release-repo:0.0.1"
         registryCredential = 'dockerhub'
     }
     agent any
@@ -23,11 +23,7 @@ pipeline {
             }
         }
 	stage ('Build image') {
-	    steps {
-		script {
-        	    docker.build registry + ":$BUILD_NUMBER"
-	    	}
-	    }
+	    sh("docker build -t ${registry} .")
         }
     }
 }
