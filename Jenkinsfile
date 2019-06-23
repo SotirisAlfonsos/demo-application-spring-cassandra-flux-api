@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        registry = "fluxrelease/demo-release-repo"
+        registryCredential = 'dockerhub'
+    }
     agent any
     tools {
         maven 'Maven 3.6.1'
@@ -18,5 +22,9 @@ pipeline {
                 sh 'mvn clean install' 
             }
         }
+	stage ('Build image') {
+	    steps {
+        	    docker.build registry + ":$BUILD_NUMBER"
+	    }
     }
 }
