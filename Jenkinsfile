@@ -32,6 +32,7 @@ pipeline {
           sh 'docker build -t $IMAGE_REGISTRY/demo-release-repo:$TAG .'
           sh 'docker push $IMAGE_REGISTRY/demo-release-repo:$TAG'
         }
+      }
     }
     stage('Deploy Canary') {
       when { branch 'canary' }
