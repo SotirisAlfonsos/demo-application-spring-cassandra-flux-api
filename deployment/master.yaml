@@ -1,0 +1,26 @@
+kind: Deployment
+  metadata:
+name: flux
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flux
+    spec:
+      containers:
+      - name: flux
+        image: gcr.io/canary-k8-deployment-21-06-19/fluxrelease/demo-release-repo:"${TAG}"
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flux
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: flux
