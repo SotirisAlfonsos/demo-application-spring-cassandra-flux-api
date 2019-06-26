@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux-canary
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flux
+    spec:
+      containers:
+      - name: flux
+        image: gcr.io/canary-k8-deployment-21-06-19/fluxrelease/demo-release-repo:imagetag
+        imagePullPolicy: Always
