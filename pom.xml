@@ -10,7 +10,12 @@
 
 	<name>fluxapi</name>
 	<description>Demo project for Spring Boot</description>
-
+	
+	<resource>
+    		<directory>src/main/resources</directory>
+    		<filtering>true</filtering>
+  	</resource>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
