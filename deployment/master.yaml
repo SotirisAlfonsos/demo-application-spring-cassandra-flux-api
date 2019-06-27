@@ -17,13 +17,11 @@ metadata:
     app: flux-v1
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: flux
   template:
     metadata:
       labels:
         app: flux
+        version: v1
     spec:
       containers:
       - name: flux
