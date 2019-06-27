@@ -2,14 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flux-canary
+  labels:
+    app: flux-canary
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: flux
   template:
     metadata:
       labels:
         app: flux
+        version: canary
     spec:
       containers:
       - name: flux
-        image: gcr.io/canary-k8-deployment-21-06-19/fluxrelease/demo-release-repo:imagetag
+        image: gcr.io/canary-k8-deployment-21-06-19/fluxrelease/demo-release-repo:canary-imagetag
         imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
