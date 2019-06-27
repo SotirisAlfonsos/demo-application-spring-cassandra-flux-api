@@ -34,5 +34,5 @@ public class ProductController {
     }
 
     @GetMapping(path = "/all")
-    public Flux<Product> all() { return this.service.findAll(); }
+    public String all() { return "This is the canary version of the application"; }
 }
