@@ -29,13 +29,13 @@ spec:
         subset: prod
         port:
           number: 8080
-      weight: $PROD_WEIGHT
+      weight: prod_weight
     - destination:
         host: flux
         subset: canary
         port:
           number: 8080
-      weight: $CANARY_WEIGHT
+      weight: canary_weight
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
