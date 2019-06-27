@@ -17,6 +17,9 @@ metadata:
     app: flux-prod
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: flux
   template:
     metadata:
       labels:
